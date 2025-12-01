@@ -1,0 +1,296 @@
+/**
+ * CodeExample component styles
+ */
+
+/* ============================================
+   CODE EXAMPLE CONTAINER
+   ============================================ */
+.codeExample {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: var(--error-glossary-card-shadow);
+}
+
+[data-theme='dark'] .codeExample {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bad code variant */
+.codeExample.bad {
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.codeExample.bad .header {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border-bottom-color: rgba(220, 38, 38, 0.2);
+}
+
+.codeExample.bad .icon {
+  color: #dc2626;
+}
+
+.codeExample.bad .title {
+  color: #dc2626;
+}
+
+[data-theme='dark'] .codeExample.bad .icon,
+[data-theme='dark'] .codeExample.bad .title {
+  color: #f87171;
+}
+
+/* Good code variant */
+.codeExample.good {
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+.codeExample.good .header {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+  border-bottom-color: rgba(5, 150, 105, 0.2);
+}
+
+.codeExample.good .icon {
+  color: #059669;
+}
+
+.codeExample.good .title {
+  color: #059669;
+}
+
+[data-theme='dark'] .codeExample.good .icon,
+[data-theme='dark'] .codeExample.good .title {
+  color: #34d399;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+.content {
+  background: var(--ifm-background-color);
+}
+
+.content pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================
+   ANNOTATION
+   ============================================ */
+.annotation {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(217, 119, 6, 0.03) 100%);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme='dark'] .annotation {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.03) 100%);
+}
+
+.annotationHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] .annotationHeader {
+  color: var(--ifm-color-primary-light);
+}
+
+.annotationIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.annotationContent {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+}
+
+[data-theme='dark'] .annotationContent {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.annotationContent ul,
+.annotationContent ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.annotationContent li {
+  margin: 0.25rem 0;
+}
+
+.annotationContent code {
+  font-size: 0.85em;
+}
+
+/* ============================================
+   KEY TAKEAWAY
+   ============================================ */
+.keyTakeaway {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.03) 100%);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  border-radius: 12px;
+  box-shadow: var(--error-glossary-card-shadow);
+}
+
+[data-theme='dark'] .keyTakeaway {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.03) 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.keyTakeawayHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #059669;
+}
+
+[data-theme='dark'] .keyTakeawayHeader {
+  color: #34d399;
+}
+
+.keyTakeawayIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.keyTakeawayContent {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ifm-color-emphasis-900);
+}
+
+[data-theme='dark'] .keyTakeawayContent {
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* ============================================
+   ERROR MESSAGE
+   ============================================ */
+.errorMessage {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(220, 38, 38, 0.02) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 12px;
+}
+
+[data-theme='dark'] .errorMessage {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.1) 0%, rgba(248, 113, 113, 0.02) 100%);
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+.errorMessageHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #dc2626;
+}
+
+[data-theme='dark'] .errorMessageHeader {
+  color: #f87171;
+}
+
+.errorMessageIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.errorMessageCode {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: #b91c1c;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+[data-theme='dark'] .errorMessageCode {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fca5a5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 576px) {
+  .codeExample {
+    border-radius: 8px;
+  }
+
+  .header {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .annotation,
+  .keyTakeaway,
+  .errorMessage {
+    padding: 0.875rem 1rem;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 0.85rem;
+  }
+}

@@ -1,11 +1,204 @@
+/**
+ * Homepage Features styles for Error Glossary
+ */
+
+/* ============================================
+   FEATURES SECTION
+   ============================================ */
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
   width: 100%;
+  background-color: var(--ifm-background-surface-color);
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+/* ============================================
+   FEATURES HEADER
+   ============================================ */
+.featuresHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.featuresTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.featuresSubtitle {
+  font-size: 1.15rem;
+  color: var(--ifm-color-emphasis-600);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   FEATURE CARD
+   ============================================ */
+.featureCard {
+  background: var(--error-glossary-card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  box-shadow: var(--error-glossary-card-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--error-glossary-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+[data-theme='dark'] .featureCard {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.featureCard:hover {
+  box-shadow: var(--error-glossary-card-hover-shadow);
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   FEATURE ICON
+   ============================================ */
+.featureIconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(217, 119, 6, 0.1) 0%,
+    rgba(217, 119, 6, 0.05) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: var(--error-glossary-transition);
+}
+
+[data-theme='dark'] .featureIconWrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.15) 0%,
+    rgba(251, 191, 36, 0.05) 100%
+  );
+}
+
+.featureCard:hover .featureIconWrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(217, 119, 6, 0.15) 0%,
+    rgba(217, 119, 6, 0.1) 100%
+  );
+  transform: scale(1.05);
+}
+
+[data-theme='dark'] .featureCard:hover .featureIconWrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.2) 0%,
+    rgba(251, 191, 36, 0.1) 100%
+  );
+}
+
+.featureIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--ifm-color-primary);
+  transition: var(--error-glossary-transition);
+}
+
+.featureCard:hover .featureIcon {
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] .featureCard:hover .featureIcon {
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   FEATURE CONTENT
+   ============================================ */
+.featureContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+  letter-spacing: -0.01em;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+[data-theme='dark'] .featureDescription {
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 1rem;
+  }
+
+  .featuresHeader {
+    margin-bottom: 2rem;
+  }
+
+  .featuresTitle {
+    font-size: 1.75rem;
+  }
+
+  .featuresSubtitle {
+    font-size: 1rem;
+  }
+
+  .featureCard {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .featureIconWrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .featureIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 2rem 1rem;
+  }
+
+  .featureCard {
+    padding: 1.25rem;
+  }
+
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
 }
