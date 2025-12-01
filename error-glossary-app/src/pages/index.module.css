@@ -1,23 +1,348 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Homepage styles for Error Glossary
  */
 
+/* ============================================
+   HERO BANNER
+   ============================================ */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--error-glossary-gradient-start) 0%,
+    var(--error-glossary-gradient-end) 50%,
+    #ffffff 100%
+  );
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(
+    135deg,
+    var(--error-glossary-gradient-start) 0%,
+    var(--error-glossary-gradient-end) 50%,
+    var(--ifm-background-color) 100%
+  );
 }
 
+/* Subtle pattern overlay */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    circle at 25% 25%,
+    rgba(217, 119, 6, 0.05) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 75% 75%,
+    rgba(217, 119, 6, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HERO LABEL
+   ============================================ */
+.heroLabel {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+[data-theme='dark'] .heroLabel {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   HERO TITLE
+   ============================================ */
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--ifm-color-primary-darkest) 0%,
+    var(--ifm-color-primary) 50%,
+    var(--ifm-color-primary-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+[data-theme='dark'] .heroTitle {
+  background: linear-gradient(
+    135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    var(--ifm-color-primary) 50%,
+    var(--ifm-color-primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ============================================
+   HERO SUBTITLE
+   ============================================ */
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* ============================================
+   HERO DESCRIPTION
+   ============================================ */
+.heroDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ifm-color-emphasis-600);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.heroDescription em {
+  color: var(--ifm-color-primary-dark);
+  font-style: normal;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .heroDescription em {
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   HERO BUTTONS
+   ============================================ */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.heroButton {
+  min-width: 160px;
+}
+
+.heroButtonSecondary {
+  min-width: 160px;
+}
+
+/* ============================================
+   HERO STATS
+   ============================================ */
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+[data-theme='dark'] .heroStats {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   SEARCH SECTION
+   ============================================ */
+.searchSection {
+  padding: 4rem 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(217, 119, 6, 0.03) 50%,
+    transparent 100%
+  );
+}
+
+[data-theme='dark'] .searchSection {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.03) 50%,
+    transparent 100%
+  );
+}
+
+.searchContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.searchDescription {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.7;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 1rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+  }
+
+  .heroStats {
+    gap: 2rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroBanner {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .heroButton,
+  .heroButtonSecondary {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .heroStats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .stat {
+    flex: 0 0 40%;
+  }
+
+  .searchSection {
+    padding: 3rem 1rem;
+  }
+
+  .searchTitle {
+    font-size: 1.5rem;
+  }
 }

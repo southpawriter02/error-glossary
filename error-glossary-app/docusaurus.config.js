@@ -41,6 +41,32 @@ const config = {
     locales: ['en'],
   },
 
+  // Add custom head tags for fonts
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
+      },
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -48,26 +74,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // Remove edit link for now since repo isn't set up
+          editUrl: undefined,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Disable blog for now
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -81,8 +91,12 @@ const config = {
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
         hashed: true,
-        // For docs using Chinese, it is suggested to set:
-        // language: ["en", "zh"],
+        indexDocs: true,
+        indexBlog: false,
+        docsRouteBasePath: '/docs',
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchBarShortcutHint: true,
       }),
     ],
   ],
@@ -92,21 +106,43 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+
+      // Color mode settings
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+
+      // Announcement bar (optional - uncomment to enable)
+      // announcementBar: {
+      //   id: 'welcome',
+      //   content: 'Welcome to Error Glossary! We\'re building a comprehensive guide to programming errors.',
+      //   backgroundColor: 'var(--ifm-color-primary-lightest)',
+      //   textColor: 'var(--ifm-color-primary-darkest)',
+      //   isCloseable: true,
+      // },
+
       navbar: {
         title: 'Error Glossary',
         logo: {
           alt: 'Error Glossary Logo',
           src: 'img/logo.svg',
         },
+        hideOnScroll: false,
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Errors',
+            label: 'Browse Errors',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'search',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/southpawriter02/error-glossary',
             label: 'GitHub',
             position: 'right',
           },
@@ -116,46 +152,65 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Documentation',
             items: [
               {
-                label: 'Errors',
+                label: 'Introduction',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Python Errors',
+                to: '/docs/python/type-error-nonetype-not-iterable',
+              },
+            ],
+          },
+          {
+            title: 'Languages',
+            items: [
+              {
+                label: 'Python',
+                to: '/docs/python/type-error-nonetype-not-iterable',
+              },
+              {
+                label: 'JavaScript',
+                to: '/docs/intro',
+              },
+              {
+                label: 'TypeScript',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Resources',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'GitHub Repository',
+                href: 'https://github.com/southpawriter02/error-glossary',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Report an Issue',
+                href: 'https://github.com/southpawriter02/error-glossary/issues',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Contribute',
+                href: 'https://github.com/southpawriter02/error-glossary#contributing',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Error Glossary. Built with Docusaurus.`,
+        copyright: `Copyright ${new Date().getFullYear()} Error Glossary. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['python', 'java', 'ruby', 'php', 'rust', 'go', 'bash', 'json'],
+      },
+
+      // Table of contents settings
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
       },
     }),
 };
